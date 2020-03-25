@@ -1,5 +1,5 @@
-# covid19-tracker
-###Tracker app summary
+# Covid19-tracker
+### Tracker app summary
 This is an app which helps user to track their symptoms for Covid-19, 
 individuals who came in contact with the user, 
 and also the location of places the user visited.
