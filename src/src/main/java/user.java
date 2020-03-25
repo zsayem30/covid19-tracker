@@ -11,13 +11,14 @@ public class user {
 
     private ArrayList<user> infectList = new ArrayList<>();
 
-    public user(String name, int age, String gender, String region, GregorianCalendar date, int caseID) {
+    public user(String name, int age, String gender, String region, int caseID) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.region = region;
-        this.date = date;
         this.caseID = caseID;
+        GregorianCalendar dateCreated = new GregorianCalendar();
+        date = dateCreated;
     }
 
     @Override
