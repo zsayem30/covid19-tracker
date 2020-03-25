@@ -1,9 +1,9 @@
 # Covid19-tracker
 ### Tracker app summary
 This is an app which helps user to</br>  
-*Track their symptoms for Covid-19</br>   
-*Individuals who came in contact with the user</br>   
-*Location of places the user visited</br>    
+* Track their symptoms for Covid-19</br>   
+* Individuals who came in contact with the user</br>   
+* Location of places the user visited</br>    
 The app prompts the user to track their symptoms, 
 other user they have come in contact with and the places they have visited for 14 days, 
 and after the 14 day incubation period, 
