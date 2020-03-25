@@ -1,35 +1,30 @@
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public class user {
     private String name;
     private int age;
     private String gender;
-    private String region;
+    private location userIPlocation;
     private GregorianCalendar date;
-    private final int caseID;
+    private final int caseID; //unique id for each separate user. Found by adding the hashcode of the name, age. Need to add more features to make it unique for example location.
 
-    private ArrayList<user> infectList = new ArrayList<>();
-
-    public user(String name, int age, String gender, String region, int caseID) {
+    public user (String name, int age, String gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;
-        this.region = region;
-        this.caseID = caseID;
-        GregorianCalendar dateCreated = new GregorianCalendar();
-        date = dateCreated;
+        this.caseID = name.hashCode() + age;
+        date = new GregorianCalendar();
     }
 
     @Override
     public int hashCode() {
-        return name.hashCode() + caseID;
+        return name.hashCode() + age;
     }
     @Override
     public boolean equals(Object o) {
         if (o instanceof user) {
             user other = (user) o;
-            if (other.caseID == this.caseID && other.name.equals(this.name)) {
+            if (other.caseID == this.caseID ) {
                 return true;
             }
         }
