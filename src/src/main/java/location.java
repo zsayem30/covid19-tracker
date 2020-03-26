@@ -1,7 +1,7 @@
 import com.maxmind.geoip2.WebServiceClient;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
-import com.maxmind.geoip2.model.CountryResponse;
+import com.maxmind.geoip2.record.*;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -18,7 +18,15 @@ public class location {
     //
     // Replace "42" with your account ID and "license_key" with your license key.
 
-    WebServiceClient client = new WebServiceClient.Builder(42, "license_key").build();
+    private WebServiceClient client = new WebServiceClient.Builder(42, "license_key").build();
+    private CityResponse response;
+    private Country country;
+    private Subdivision subdivision;
+    private City city;
+    private Postal postal;
+    double latitude;
+    double longitude;
+    double accuracyRadius;
 
     {
 
@@ -30,11 +38,22 @@ public class location {
         }
 
         // Do the lookup
+    }
+    private location(InetAddress ipAddress) {
         try {
-            CountryResponse country_response = client.country(ipAddress);
-            CityResponse city_response = client.city(ipAddress);
-        } catch (IOException | GeoIp2Exception e) {
-            e.printStackTrace();
+            response = client.city(ipAddress);
+            country = response.getCountry();
+            subdivision = response.getMostSpecificSubdivision();
+            city = response.getCity();
+            postal = response.getPostal();
+            latitude = response.getLocation().getLatitude();
+            longitude = response.getLocation().getLongitude();
+            accuracyRadius = response.getLocation().getAccuracyRadius();
         }
+
+        catch (IOException | GeoIp2Exception e) {
+        e.printStackTrace();
+    }
+
     }
 }

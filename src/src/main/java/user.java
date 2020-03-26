@@ -4,7 +4,7 @@ public class user {
     private String name;
     private int age;
     private String gender;
-    private location userIPlocation;
+    private location location;
     private GregorianCalendar date;
     private final int caseID; //unique id for each separate user. Found by adding the hashcode of the name, age. Need to add more features to make it unique for example location.
 
@@ -14,6 +14,7 @@ public class user {
         this.gender = gender;
         this.caseID = name.hashCode() + age;
         date = new GregorianCalendar();
+
     }
 
     @Override
