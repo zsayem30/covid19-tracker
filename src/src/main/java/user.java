@@ -17,10 +17,7 @@ public class user {
 
     }
 
-    @Override
-    public int hashCode() {
-        return name.hashCode() + age;
-    }
+
     @Override
     public boolean equals(Object o) {
         if (o instanceof user) {

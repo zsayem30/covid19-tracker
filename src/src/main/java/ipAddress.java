@@ -8,11 +8,8 @@ public class ipAddress {
     {
         try {
             ip = InetAddress.getLocalHost();
-
             hostname = ip.getHostName();
-
         } catch (UnknownHostException e) {
-
             e.printStackTrace();
         }
     }
